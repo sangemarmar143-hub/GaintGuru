@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import 'katex/dist/katex.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-stone-50 text-stone-900 font-body;
+  @apply dark:bg-stone-950 dark:text-stone-100;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-stone-300 dark:bg-stone-700 rounded-full; }
+
+/* ── Chat message prose ────────────────────────────────────────────────────── */
+.prose-math p { @apply mb-3 leading-relaxed; }
+.prose-math ul { @apply list-disc pl-5 mb-3 space-y-1; }
+.prose-math ol { @apply list-decimal pl-5 mb-3 space-y-1; }
+.prose-math strong { @apply font-semibold; }
+.prose-math code {
+  @apply bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+/* KaTeX display blocks */
+.katex-display {
+  @apply my-4 overflow-x-auto;
+  padding: 0.5rem 0;
+}
+
+/* ── Topic tag pill ────────────────────────────────────────────────────────── */
+.topic-pill {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
+         bg-saffron-100 text-saffron-700
+         dark:bg-saffron-900/30 dark:text-saffron-300
+         border border-saffron-200 dark:border-saffron-800;
+}
+
+/* ── Typing cursor ─────────────────────────────────────────────────────────── */
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+.cursor { display: inline-block; width: 2px; height: 1em; background: currentColor;
+          vertical-align: text-bottom; animation: blink 1s step-end infinite; margin-left: 1px; }
+
+/* ── Key concept box ───────────────────────────────────────────────────────── */
+.key-concept {
+  @apply mt-4 p-3 rounded-lg border-l-4 border-indigo-500
+         bg-indigo-50 dark:bg-indigo-950/30 dark:border-indigo-400
+         text-sm text-indigo-900 dark:text-indigo-200;
+}
